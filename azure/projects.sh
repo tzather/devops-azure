@@ -2,7 +2,7 @@
 clear
 
 ######################### Variables Test #########################
-base="tzather-prod"
+base="tzather-test"
 # sql_server_username="USERNAME"
 # sql_server_password="PASSWORD"
 
@@ -20,7 +20,7 @@ base="tzather-prod"
 resource_group="$base-rg"
 location="centralus"
 appservice="$base-appservice"
-web="$base-web"
+webangular="$base-webangular"
 # api="$base-api"
 # sql_server="$base-sql-server"
 # sql_server_firewall_rule="$base-sql-server-firewall-rule"
@@ -46,11 +46,11 @@ az appservice plan create \
   --is-linux \
   --sku B1
 
-# create webapp web
+# create angular web app
 az webapp create \
   --resource-group $resource_group \
   --plan $appservice \
-  --name $web \
+  --name $webangular \
   --runtime "PHP:8.0"
 
 # # create webapp api

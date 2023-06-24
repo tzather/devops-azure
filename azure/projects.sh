@@ -21,6 +21,7 @@ resource_group="$base-rg"
 location="centralus"
 appservice="$base-appservice"
 webangular="$base-webangular"
+mock="$base-mock"
 # api="$base-api"
 # sql_server="$base-sql-server"
 # sql_server_firewall_rule="$base-sql-server-firewall-rule"
@@ -32,26 +33,33 @@ webangular="$base-webangular"
 # az group delete --name $resource_group --yes 2>/dev/null
 # exit
 
-# create resource group
-az group create \
-  --name $resource_group \
-  --location $location \
-  --output table
+# # create resource group
+# az group create \
+#   --name $resource_group \
+#   --location $location \
+#   --output table
 
-# create appservice plan
-az appservice plan create \
-  --name $appservice \
-  --resource-group $resource_group \
-  --location $location \
-  --is-linux \
-  --sku B1
+# # create appservice plan
+# az appservice plan create \
+#   --name $appservice \
+#   --resource-group $resource_group \
+#   --location $location \
+#   --is-linux \
+#   --sku B1
 
-# create angular web app
+# # create angular web app
+# az webapp create \
+#   --resource-group $resource_group \
+#   --plan $appservice \
+#   --name $webangular \
+#   --runtime "PHP:8.0"
+
+# create mock api
 az webapp create \
   --resource-group $resource_group \
   --plan $appservice \
-  --name $webangular \
-  --runtime "PHP:8.0"
+  --name $mock \
+  --runtime "DOTNETCORE:7.0"
 
 # # create webapp api
 # az webapp create \

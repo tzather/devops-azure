@@ -3,15 +3,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
-    apt-transport-https \
-    apt-utils \
-    ca-certificates \
-    curl \
-    git \
-    iputils-ping \
-    jq \
-    lsb-release \
-    software-properties-common
+  apt-transport-https \
+  apt-utils \
+  ca-certificates \
+  curl \
+  git \
+  iputils-ping \
+  jq \
+  lsb-release \
+  software-properties-common
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
@@ -19,7 +19,6 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 ENV TARGETARCH=linux-x64
 
 WORKDIR /azp
-
 
 # BEGIN custom
 
@@ -31,7 +30,7 @@ RUN rm packages-microsoft-prod.deb
 RUN apt-get update; \
   apt-get install -y apt-transport-https && \
   apt-get update && \
-  apt-get install -y dotnet-sdk-6.0
+  apt-get install -y dotnet-sdk-7.0
 
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
@@ -48,7 +47,6 @@ RUN apt-get install -y google-chrome-stable
 RUN export CHROME_BIN='/usr/bin/chromium'
 
 # END custom
-
 
 COPY ./start.sh .
 RUN chmod +x start.sh

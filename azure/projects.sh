@@ -22,6 +22,8 @@ location="centralus"
 appservice="$base-appservice"
 webangular="$base-webangular"
 mock="$base-mock-cs"
+identity="$base-identity"
+
 # api="$base-api"
 # sql_server="$base-sql-server"
 # sql_server_firewall_rule="$base-sql-server-firewall-rule"
@@ -47,17 +49,25 @@ mock="$base-mock-cs"
 #   --is-linux \
 #   --sku B1
 
+# # create angular app
 # az webapp create \
 #   --resource-group $resource_group \
 #   --plan $appservice \
 #   --name $webangular \
 #   --runtime "PHP:8.2"
 
-# create mock api
+# # create mock api
 # az webapp create \
 #   --resource-group $resource_group \
 #   --plan $appservice \
 #   --name $mock \
+#   --runtime "DOTNETCORE:7.0"
+
+# # create mock api
+# az webapp create \
+#   --resource-group $resource_group \
+#   --plan $appservice \
+#   --name $identity \
 #   --runtime "DOTNETCORE:7.0"
 
 #################################################################################

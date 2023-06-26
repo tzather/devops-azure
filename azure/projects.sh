@@ -47,19 +47,20 @@ mock="$base-mock-cs"
 #   --is-linux \
 #   --sku B1
 
-# # create angular web app
 # az webapp create \
 #   --resource-group $resource_group \
 #   --plan $appservice \
 #   --name $webangular \
-#   --runtime "PHP:8.0"
+#   --runtime "PHP:8.2"
 
 # create mock api
-az webapp create \
-  --resource-group $resource_group \
-  --plan $appservice \
-  --name $mock \
-  --runtime "DOTNETCORE:7.0"
+# az webapp create \
+#   --resource-group $resource_group \
+#   --plan $appservice \
+#   --name $mock \
+#   --runtime "DOTNETCORE:7.0"
+
+#################################################################################
 
 # # create webapp api
 # az webapp create \

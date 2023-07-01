@@ -3,31 +3,28 @@ clear
 
 ######################### Variables Test #########################
 base="tzather-test"
-# sql_server_username="USERNAME"
-# sql_server_password="PASSWORD"
 
 ######################### Variables Uat #########################
 # base="tzather-uat"
-# sql_server_username="USERNAME"
-# sql_server_password="PASSWORD"
 
 ######################### Variables Production #########################
 # base="tzather-prod"
-# sql_server_username="USERNAME"
-# sql_server_password="PASSWORD"
+
+######################### Get from environment variable #########################
+# sql_server_username
+# sql_server_password
 
 ######################### Variables Common #########################
 resource_group="$base-rg"
 location="centralus"
 appservice="$base-appservice"
+sql_server="$base-sql-server"
+sql_server_firewall_rule="$base-sql-server-firewall-rule"
+
 webangular="$base-webangular"
 mock="$base-mock-cs"
 identity="$base-identity"
-
-# api="$base-api"
-# sql_server="$base-sql-server"
-# sql_server_firewall_rule="$base-sql-server-firewall-rule"
-# sql_server_db="Identity"
+identity_db="Identity"
 
 ######################### Execute Scripts #########################
 
@@ -63,22 +60,12 @@ identity="$base-identity"
 #   --name $mock \
 #   --runtime "DOTNETCORE:7.0"
 
-# # create mock api
+# # create identity api
 # az webapp create \
 #   --resource-group $resource_group \
 #   --plan $appservice \
 #   --name $identity \
 #   --runtime "DOTNETCORE:7.0"
-
-#################################################################################
-
-# # create webapp api
-# az webapp create \
-#   --resource-group $resource_group \
-#   --plan $appservice \
-#   --name $api \
-#   --runtime "DOTNETCORE:6.0" \
-#   --output table
 
 # # create sql server
 # az sql server create \
@@ -100,5 +87,5 @@ identity="$base-identity"
 # az sql db create \
 #   --resource-group $resource_group \
 #   --server $sql_server \
-#   --name $sql_server_db \
+#   --name $identity_db \
 #   --edition Basic

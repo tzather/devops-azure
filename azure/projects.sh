@@ -84,12 +84,12 @@ identity_db="Identity"
 #   --start-ip-address 0.0.0.0 \
 #   --end-ip-address 0.0.0.0
 
-# create database: log
-az sql db create \
-  --resource-group $resource_group \
-  --server $sql_server \
-  --name $log_db \
-  --edition Basic
+# # create database: log
+# az sql db create \
+#   --resource-group $resource_group \
+#   --server $sql_server \
+#   --name $log_db \
+#   --edition Basic
 
 # # create database: identity
 # az sql db create \

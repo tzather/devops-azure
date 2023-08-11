@@ -1,6 +1,7 @@
 #! /bin/bash
 clear
 
+company=tzather
 ######################### Variables Test #########################
 base="tzather-test"
 
@@ -17,6 +18,7 @@ base="tzather-test"
 ######################### Variables Common #########################
 resource_group="$base-rg"
 location="centralus"
+container_registry="$company""acr"
 appservice="$base-appservice"
 sql_server="$base-sql-server"
 sql_server_firewall_rule="$base-sql-server-firewall-rule"
@@ -38,6 +40,12 @@ identity_db="Identity"
 #   --name $resource_group \
 #   --location $location \
 #   --output table
+
+# # create container registry
+# az acr create \
+#   --name $container_registry \
+#   --resource-group $resource_group \
+#   --sku Basic
 
 # # create appservice plan
 # az appservice plan create \
